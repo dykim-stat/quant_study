@@ -1,8 +1,10 @@
 ---
 title: "Chapter 5 금융 데이터 수집하기 (기본)"
-output: html_document
 editor_options: 
   chunk_output_type: console
+output:
+  md_document:
+    variant: markdown_github
 ---
 
 # 5.1 한국거래소의 산업별 현황 및 개별지표 크롤링
