@@ -1,0 +1,54 @@
+---
+title: "Chapter2크롤링을위한기본지식"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+## 2.2.1 HTTP
+
+### 코드종류
+- 1xx : 조건부응답 - 리퀘스트를 받고, 처리 중에 있음
+- 2xx : 성공 - 리퀘스트를 정상적으로 처리함
+- 3xx : 리디렉션 - 리퀘스트 완료를 위해 추가 동작이 필요함
+- 4xx : 클라이언트 오류 - 클라이언트 요청을 처리할 수 없어 오류 발생
+- 5xx : 서버오류 - 서버에서 처리를 하지 못하여 오류 발생
+
+
+![image](https://hyunyulhenry.github.io/quant_cookbook/images/html_2.png)
+
+```{r}
+library(dplyr)
+2 %>% round(1.123,.)
+```
+
+```{r}
+result = tryCatch({
+  expr # 실행하고자 하는 코드
+}, warning = function(w) {
+  warning-handler-code # 경고 발생시 실행할 구문
+}, error = function(e) {
+  error-handler-code # 오류 발생 시 실행할 구문
+}, finally = {
+  cleanup-code # 오류의 여부와 관계없이 무조건 수행할 구문, 생략가능
+})
+```
+
+- 오류 예제
+```{r}
+number = data.frame(1,2,3,'4',5,stringsAsFactors=F)
+str(number)
+for (i in number){
+  print(i^2)
+}
+
+for (i in number){
+  tryCatch({
+    print(i^2)
+  }, error = function(e){
+    print(paste('Error:',i))
+  })
+}
+
+```
+

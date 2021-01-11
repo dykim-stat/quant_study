@@ -1,0 +1,20 @@
+---
+title: "Chapter 5 금융 데이터 수집하기 (기본)"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# 5.1 한국거래소의 산업별 현황 및 개별지표 크롤링
+
+- 산업별 현황: http://marketdata.krx.co.kr/mdi#document=03030103
+- 개별지표: http://marketdata.krx.co.kr/mdi#document=13020401
+
+엑셀로 받을 수 있지만 귀찮다. 크롤링을 하자!
+
+## 5.1.1 산업별 현황 크롤링
+먼저 산업별 현황에 해당하는 페이지에 접속한 후 개발자 도구 화면을 열고 [Excel] 버튼을 클릭합니다. [Network] 탭에는 GenerateOTP.jspx와 download.jspx 두 가지 항목이 있습니다. 거래소에서 엑셀 데이터를 받는 과정은 다음과 같습니다.
+
+1. http://marketdata.krx.co.kr/contents/COM/GenerateOTP.jspx 에 원하는 항목을쿼리로 발송하면 해당 쿼리에 해당하는 OTP(GenerateOTP.jspx)를 받게 됩니다.
+
+2. 부여받은 OTP를 http://file.krx.co.kr/download.jspx에 제출하면 이에 해당하는 데이터(download.jspx)를 다운로드하게 됩니다.
